@@ -1,0 +1,226 @@
+using System;
+using MarketingCampaignManagement.Entities;
+<<<<<<< HEAD
+using MarketingCampaignManagement.DAL;
+using MarketingCampaignManagement.BAL;
+=======
+using MarketingCampaignManagement.BAL;
+
+>>>>>>> d5f6651d54c79a41e0ab8ae8712d6f5e6479e00b
+namespace MarketingCampaignManagement.UI
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            try
+            {
+                do
+                {
+                    Console.WriteLine("Welcome to XYZ Services Ltd.");
+                    Console.WriteLine("-------------------------------------------------------------");
+                    Console.WriteLine("-------------------------------------------------------------");
+                    Console.WriteLine("1. Login as Admin");
+                    Console.WriteLine("2. Login as Manager Executive");
+                    Console.WriteLine("3. Exit");
+                    Console.WriteLine("-------------------------------------------------------------");
+                    Console.WriteLine("-------------------------------------------------------------");
+                    int choice = int.Parse(Console.ReadLine());
+                    switch (choice)
+                    {
+                        case 1:
+                            {
+                                AdminRole adminRole = new AdminRole();
+                                // Implementation of Admin Role
+                                Console.WriteLine("Enter your Login Id");
+                                string userName = Console.ReadLine();
+                                Console.WriteLine("Enter your password");
+                                string password = Console.ReadLine();
+
+                                if ()
+                                {
+                                    do
+                                    {
+                                        // Displaying all the admin roles to the administrator after successful Log in
+                                        Console.WriteLine("-------------------------------------------------------------");
+                                        Console.WriteLine("-------------------------------------------------------------");
+                                        Console.WriteLine("Welcom Admin");
+                                        Console.WriteLine("-------------------------------------------------------------");
+                                        Console.WriteLine("-------------------------------------------------------------");
+                                        Console.WriteLine("1. Add Product ");
+                                        Console.WriteLine("2. Add Users ");
+                                        Console.WriteLine("3. Create Campaign ");
+                                        Console.WriteLine("4. Close Campaign ");
+                                        Console.WriteLine("5. View Lead By Campaign ");
+                                        Console.WriteLine("6. View Campaign By Executive");
+                                        Console.WriteLine("7. Log Out ");
+                                        Console.WriteLine("-------------------------------------------------------------");
+                                        Console.WriteLine("-------------------------------------------------------------");
+
+                                        int adminChoice = int.Parse(Console.ReadLine());
+
+                                        switch (adminChoice)
+                                        {
+                                            case 1:
+                                                {
+                                                    //Using Product Entity We instantiate  new product 
+                                                    Product product = new Product();
+                                                    Console.WriteLine("Enter Product Name");
+                                                    product.Name = Console.ReadLine();
+                                                    Console.WriteLine("Enter Product Description");
+                                                    product.Description = Console.ReadLine();
+                                                    Console.WriteLine("Enter Product Price");
+                                                    product.UnitPrice = decimal.Parse(Console.ReadLine());
+                                                    adminRole.AddProduct(product);
+                                                    Console.WriteLine("Product Added Successfully");
+                                                }
+                                                break;
+                                            case 2:
+                                                {
+                                                    //Using User Entity We instatiate new user 
+                                                    User user = new User();
+                                                    Console.WriteLine("Enter Full name");
+                                                    user.FullName = Console.ReadLine();
+                                                    Console.WriteLine("Enter Login Id");
+                                                    user.LoginId = Console.ReadLine();
+                                                    Console.WriteLine("Enter Password");
+                                                    user.Password = Console.ReadLine();
+                                                    Console.WriteLine("Enter Date of Joining");
+                                                    user.DateOfJoining = DateTime.Now;
+                                                    Console.WriteLine("Enter Discontinued as true or false");
+                                                    user.Discontinued = bool.Parse(Console.ReadLine());
+                                                    Console.WriteLine("Enter IsAdmin as true or false");
+                                                    user.IsAdmin = bool.Parse(Console.ReadLine());
+                                                    adminRole.AddUsers(user);
+                                                    Console.WriteLine("User Added successfully");
+                                                }
+                                                break;
+                                            case 3:
+                                                {
+                                                    //Using Campaign Entity We instatiate new campaign 
+                                                    Campaign campaign = new Campaign();
+                                                    Console.WriteLine("Enter Name");
+                                                    campaign.Name = Console.ReadLine();
+                                                    Console.WriteLine("Enter Venue");
+                                                    campaign.Venue = Console.ReadLine();
+                                                    Console.WriteLine("Enter Id of the User to which campaign is assigned");
+                                                    campaign.AssignedTo = int.Parse(Console.ReadLine());
+                                                    Console.WriteLine("Enter Starting Date");
+                                                    campaign.StartedOn = DateTime.Now;
+                                                    Console.WriteLine("Enter Completed On Date");
+                                                    campaign.CompletedOn = DateTime.Parse(Console.ReadLine());
+                                                    Console.WriteLine("Enter IsOpen as true or false");
+                                                    campaign.IsOpen = bool.Parse(Console.ReadLine());
+                                                    adminRole.CreateCampaign(campaign);
+                                                }
+                                                break;
+                                            case 4:
+                                                {
+                                                    Campaign campaign = new Campaign();
+                                                    Console.WriteLine("Enter the Customer ID");
+                                                    campaign.Id = int.Parse(Console.ReadLine());
+                                                    adminRole.CloseCampaign(campaignId);
+                                                }
+                                                break;
+                                            case 5:
+                                                {
+                                                  
+                                                    Campaign campaign = new Campaign();
+                                                    Console.WriteLine("Enter the Campaign ID");
+                                                    campaign.Id = int.Parse(Console.ReadLine());
+                                                    adminRole.ViewLeadByCampaign(campaignId);
+                                                }
+                                                break;
+                                            case 6:
+                                                {
+                                                    
+                                                }
+                                                break;
+                                            case 7:
+                                                Environment.Exit(0);
+                                                break;
+                                            default:
+                                                Console.WriteLine("Enter Valid Choice");
+                                                break;
+                                        }
+                                    } while (true);
+                                }
+                                else
+                                {
+                                    
+                                }
+                                
+
+                            }
+                            break;
+                        case 2:
+                            {
+                                //Implementaion of Manager Role
+                                Console.WriteLine("ManagerUsername: ");
+                                string managerusername = Console.ReadLine();
+                                Console.WriteLine("ManagerPassword:");
+                                var managerpassword = Console.ReadLine();
+                                ManagerExecutiveRole managerexecutiverole = new ManagerExecutiveRole();
+
+                                if (  )
+                                {
+                                    Console.WriteLine("1.Add Lead\t2.View Lead By Campaign\t3.Lead Follow Up\t4.Create Sales Order");
+                                    Console.WriteLine("Enter Choice:");
+                                    int ch = int.Parse(Console.ReadLine());
+                                    switch (ch)
+                                    {
+                                        case 1:
+                                            {
+                                                Lead lead = new Lead();
+                                                Console.WriteLine("Enter Name");
+                                                lead.ConsumerName = Console.ReadLine();
+                                                Console.WriteLine("Enter Phone Number:");
+                                                lead.PhoneNo = Console.ReadLine();
+                                                Console.WriteLine("Email Address:");
+                                                lead.EmailAddress = Console.ReadLine();
+                                                Console.WriteLine("Preferred Mode Of Communication:");
+                                                lead.PreferredModeOfCommunication = Console.ReadLine();
+                                                Console.WriteLine("Campaign Id:");
+                                                lead.CampaignId=int.Parse(Console.ReadLine());
+                                                Console.WriteLine();
+                                                
+                                                Console.WriteLine("Date Approached:");
+                                                lead.DateApproached = DateTime.Parse(Console.ReadLine());
+                                                Console.WriteLine("");
+                                                managerexecutiverole.AddLead(lead);
+
+                                            }
+                                            break;
+                                        case 2:
+                                            {
+                                                Campaign campaign = new Campaign();
+                                                Console.WriteLine("Enter Campaign Id:");
+                                                int campaignId = int.Parse(Console.ReadLine());
+                                                Console.WriteLine(managerexecutiverole.ViewLeadByCampaign(campaignId));
+
+                                            }
+                                            break;
+                                        case 3:
+                                            {
+                                                Console.WriteLine("Enter Lead Id:");
+                                                int leadId = int.Parse(Console.ReadLine());
+                                                managerexecutiverole.Leadfollowup(leadId);
+
+                                            }
+                                            break;
+
+                                        default:
+                                            Console.WriteLine("Enter a valid Choice");
+                                            break;
+                                    }
+                                }
+                    }
+                } while (true);
+            }
+            catch(Exception)
+            {
+                //Store the exception in log file
+            }
+        }
+    }
+}
